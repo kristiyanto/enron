@@ -1,2 +1,4 @@
-rawdata/enron_with_categories/
 *.webloc
+*.pyc
+rawdata/enron_with_categories/
+elasticsearch/elasticsearch/*
