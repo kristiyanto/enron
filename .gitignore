@@ -2,3 +2,5 @@
 *.pyc
 rawdata/enron_with_categories/
 elasticsearch/elasticsearch/*
+
+.ipynb_checkpoints/*
