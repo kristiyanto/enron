@@ -22,6 +22,7 @@ message= {'Message-ID': {'type': 'string',  "include_in_all": "true"},
           'Message': {'type': 'string',  "include_in_all": "false"},
          }
 
+
 header_mapping = {
   'settings' : {
                     'number_of_shards' : 5,

@@ -1,0 +1,33 @@
+USE enron;
+
+DROP TABLE header;
+DROP TABLE addrbook;
+DROP TABLE recepients;
+DROP TABLE msg;
+
+CREATE TABLE header(
+    `Message-ID` VARCHAR(50) NOT NULL PRIMARY KEY, 
+    Sender VARCHAR(255) NOT NULL, 
+    Subject VARCHAR(255) NOT NULL,
+    Date DATETIME
+);
+
+CREATE TABLE addrbook(
+    Email VARCHAR(255) NOT NULL PRIMARY KEY,
+    Name VARCHAR(255)
+);
+
+CREATE TABLE recepients(
+    `Message-ID` VARCHAR(50) NOT NULL PRIMARY KEY, 
+    Type VARCHAR(3),
+    Email VARCHAR(255)
+);
+
+CREATE TABLE msg(
+    `Message-ID` VARCHAR(50) NOT NULL PRIMARY KEY,
+    `Mime-Version` VARCHAR(10),
+    ContentType VARCHAR(50),
+    `Content-Transfer-Encoding` VARCHAR(10),
+    `X-Folder` VARCHAR(255), 
+    Body TEXT
+);
