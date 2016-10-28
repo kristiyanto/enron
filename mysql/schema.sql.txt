@@ -17,10 +17,10 @@ CREATE TABLE addrbook(
     Name VARCHAR(255)
 );
 
-CREATE TABLE recepients(
-    `Message-ID` VARCHAR(50) NOT NULL PRIMARY KEY, 
+CREATE TABLE recipients(
+    `Message-ID` VARCHAR(50) NOT NULL, 
     Type VARCHAR(3),
-    Email VARCHAR(255)
+    Recipient VARCHAR(255)
 );
 
 CREATE TABLE msg(
