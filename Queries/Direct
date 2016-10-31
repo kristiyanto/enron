@@ -1,0 +1,2 @@
+SELECT `Message-ID`, COUNT(DISTINCT Recipient) as `Tot_Dist_Recipients` from recipients group by `Message-ID` HAVING `Tot_Dist_Recipients` = 1
+
