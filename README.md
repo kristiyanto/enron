@@ -33,15 +33,15 @@ Please refer to [queries](queries) and [results](results) for more detailed info
 
 
 # Folder Structures:
-**mysql**               : Schema for MySQL
-**queries**             : Queries to answer the questions
-**rawdata**             : Extracted Data of [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz)
-**enronparser**         : contains script downloaded from [UC Berkeley](http://courses.ischool.berkeley.edu/i290-2/f04/assignments/enronEmail.py), written by Andrew Fiore to Parse Enron email to Dictionary.
-
-Parse_and_Load_Data_To_MySQL.py : A python script to load the data into MySQL
+**mysql**               : Schema for MySQL  
+**queries**             : Queries to answer the questions  
+**rawdata**             : Extracted Data of [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz)  
+**enronparser**         : contains script downloaded from [UC Berkeley](http://courses.ischool.berkeley.edu/i290-2/f04/assignments/enronEmail.py), written by Andrew Fiore to Parse Enron email to Dictionary.  
+  
+**Parse_and_Load_Data_To_MySQL.py** : A python script to load the data into MySQL  
 **runMySQL.sh**         : A shell script to run MySQL as a Docker Container. 
-**run-spark-python.sh** : A shell script to run Spark-enabled Python Docker Container --Only used to debug/further analysis. Not used for subscribtion.
-**README.md**           : This file.
+**run-spark-python.sh** : A shell script to run Spark-enabled Python Docker Container --Only used to debug/further analysis. Not used for subscribtion.  
+**README.md**           : This file.  
 
 This submission is also available on GitHub: [https://github.com/kristiyanto/enron](https://github.com/kristiyanto/enron) (Currently Private only)
 
