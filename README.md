@@ -44,9 +44,8 @@ README.md           : This file.
 This submission is also available on GitHub: [https://github.com/kristiyanto/enron](https://github.com/kristiyanto/enron) (Currently Private only)
 
 # Requirements
-MySQL (Latest version)
-Python 2.6
-    Packages: dateutil, mysql.conector, email.utils, pytz
+1. MySQL (Latest version)
+2. Python 2.6, Packages: dateutil, mysql.conector, email.utils, pytz
 
 # Architecture
 Emails were downloaded rom [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz), and extracted. A python script with leverage a parser (also from UC Berkeley) was used to load the email data into MySQL. 
