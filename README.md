@@ -21,7 +21,7 @@ We would like you to write a program (in a language of your choice) to extract t
 
 
 | Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Sender1                   | Sender2                     |
-
+|---------------------|---------------------|------------------------|---------------------------|-----------------------------|
 | 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | stanley.horton@enron.com  | rod.hayslett@enron.com      |
 | 2001-05-10 06:55:00 | 2001-05-10 06:51:00 |                    240 | jeff.dasovich@enron.com   | paul.kaufman@enron.com      |
 | 2001-04-13 05:30:00 | 2001-04-13 05:34:00 |                    240 | karen.denne@enron.com     | jeff.dasovich@enron.com     |
