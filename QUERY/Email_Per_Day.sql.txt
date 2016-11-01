@@ -1,0 +1,24 @@
+/* 
+    SQL QUERY --ENRON EMAIL DATA (SLACK CODING CHALLENGE)
+    By Daniel Kristiyanto
+
+    QUESTION: How many emails did each person receive each day?
+
+    ANSWER:
+    A query to count the number of recieved messages are performed.
+    If a recipient are mentioned more than once (eg. in both To and CC) in an email, this will be considered as 1 message.
+
+    ASSUMPTIONS:
+    - Both Enron email and external organization emails are treated similarly
+    - Only DISTINCT recipients are performed (e.g if a recipient is included in both To and CC, is considered as 1 recipient)
+*/
+
+SELECT 
+    DISTINCT CAST(Date AS DATE), 
+    Recipient, 
+    COUNT(DISTINCT r.`Message-ID`) as `Received` 
+
+FROM recipients r 
+LEFT JOIN header h ON r.`Message-ID` = h.`Message-ID` 
+
+GROUP BY CAST(Date AS DATE), Recipient ORDER BY CAST(Date AS DATE), Recipient;

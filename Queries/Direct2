@@ -1,2 +1,0 @@
-SELECT Recipient, COUNT(`Message-ID`) as `Recieved_DirectEmail` from recipients where `Message-ID` in (SELECT `Message-ID` from recipients group by `Message-ID` HAVING COUNT(DISTINCT Recipient) = 1) group by Recipient
-

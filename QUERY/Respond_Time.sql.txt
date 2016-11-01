@@ -1,0 +1,72 @@
+/* 
+    SQL QUERY --ENRON EMAIL DATA (SLACK CODING CHALLENGE)
+    By Daniel Kristiyanto
+
+    QUESTION: Find the five emails with the fastest response times. (A response is defined as a message from one of the recipients to the original sender whose subject line contains all of the words from the subject of the original email, and the response time should be measured as the difference between when the original email was sent and when the response was sent.)
+
+    ANSWER:
+    A Subquery to find the send and response messages (with the same subject) are performed, returning Message-IDs of both Message. 
+    The Message-IDs then Left Join-ed with the header to calculate the time differences (absolute value in seconds).
+    If necessary, this can be further joined with `recipients` Table
+    to find the recipients of the messages (e.g for debugging)
+
+    ASSUMPTIONS:
+    - Both Enron email and external organization emails are treated similarly
+    - Messages with NULL Subjects are not evaluated
+    - Message sent to self are not evaluated
+    
+
+*/
+
+SELECT  
+sender1.Date as `Date (Sender1)`,
+sender2.Date as `Date (Sender2)`,
+ABS(TIME_TO_SEC(TIMEDIFF(sender1.Date, sender2.Date))) AS `Respond Time (seconds)`,
+sender1.Subject as `Subject (Sender1)`,
+sender2.Subject as `Subject (Sender2)`,
+sender1.Sender as Sender1,
+sender2.Sender as Sender2
+FROM
+
+/*
+    Subquery to find the back-and-forth correspondence. Resulting a couple of Message-IDs
+*/
+(SELECT h1.`Message-ID` as `Message-ID (original)`,
+reply.`Message-ID (Reply)`
+FROM header h1
+LEFT JOIN recipients r1
+ON h1.`Message-ID` = r1.`Message-ID`
+INNER JOIN 
+    (SELECT h2.`Message-ID` as `Message-ID (Reply)`, 
+     h2.Sender as `Sender (Reply)`,
+     r2.Recipient `Recipient (Reply)`, 
+     h2.Subject as `Subject (Reply)`, 
+     h2.Date as `Date (Reply)`
+     from header h2 
+     LEFT JOIN recipients r2
+     ON h2.`Message-ID` = r2.`Message-ID`
+     ORDER BY h2.Date DESC
+    ) reply
+ON reply.`Recipient (Reply)` = h1.Sender
+AND reply.`Subject (Reply)` = h1.Subject
+AND h1.Subject IS NOT NULL
+GROUP BY h1.Subject
+HAVING COUNT(DISTINCT h1.Sender)>1
+ORDER BY h1.Date DESC) withreply
+
+/*
+    Enrinch the resulting Messages
+*/
+
+LEFT JOIN header sender1
+ON withreply.`Message-ID (original)` = sender1.`Message-ID`
+LEFT JOIN header sender2
+ON withreply.`Message-ID (Reply)` = sender2.`Message-ID`
+
+
+WHERE
+sender1.Sender <> sender2.Sender
+AND sender1.Subject IS NOT NULL
+
+ORDER BY `Respond Time (seconds)`
+LIMIT 5

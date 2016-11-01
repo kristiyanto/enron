@@ -1,0 +1,190 @@
+Select h.`Message-ID` as `Message-ID (Header)`, Subject
+FROM header h
+LEFT JOIN recipients as r1 on h.`Message-ID` = r1.`Message-ID`
+WHERE h.Sender in (SELECT Recipient from recipients)
+
+SELECT Subject as `Subject (Replies)`
+FROM header h
+LEFT JOIN recipients as r1 on h.`Message-ID` = r1.`Message-ID`
+WHERE h.Sender in (SELECT Recipient from recipients) group by h.Subject HAVING COUNT(DISTINCT h.`Sender`) >1
+
+SELECT Subject as `Subject (Replies)`
+FROM header h group by h.Subject HAVING COUNT(DISTINCT h.Sender) >1
+
+Select h.`Message-ID` as `Message-ID (Header)`, Subject
+FROM header h
+LEFT JOIN recipients as r1 on h.`Message-ID` = r1.`Message-ID`
+WHERE h.Sender in (SELECT Recipient from recipients)
+
+SELECT Subject as `Subject (Replies)`
+FROM header h
+LEFT JOIN recipients as r1 on h.`Message-ID` = r1.`Message-ID`
+WHERE h.Sender in (SELECT Recipient from recipients)
+group by h.Subject HAVING COUNT(DISTINCT h.`Sender`)>1
+
+SELECT Subject as `Subject (Replies)`
+FROM header h 
+group by h.Subject HAVING COUNT(DISTINCT h.Sender) >1
+AND h1.Sender in (SELECT)
+
+SELECT  a.*
+FROM    header a
+WHERE   EXISTS
+        (
+            SELECT Subject as `Subject (Replies)`
+            FROM header h
+            LEFT JOIN recipients as r1 on h.`Message-ID` = r1.`Message-ID`
+            WHERE a.Subject = h.Subject AND
+                h.Sender in (SELECT Recipient from recipients r2
+                    WHERE r2.`Message-ID` = h.`Message-ID`)
+            group by h.Subject HAVING COUNT(DISTINCT h.`Sender`)>1
+        )
+
+
+SELECT `Message-ID`
+FROM header h
+WHERE EXISTS
+    (
+        SELECT Recipient 
+    )
+
+
+SELECT r1.`Message-ID` as `Message-ID (Replies)`
+    FROM recipients r1
+    RIGHT JOIN header h1
+    ON r1.`Message-ID` = h1.`Message-ID`
+    WHERE 
+    r1.Recipient in 
+    (
+        SELECT Sender
+        FROM header h2
+        WHERE h2.`Message-ID` = r1.`Message-ID`
+
+    )
+    group by h1.Subject 
+    
+            group by h2.Subject HAVING COUNT(DISTINCT h2.`Sender`) >1
+
+
+    group by h.Subject HAVING COUNT(DISTINCT h.`Sender`)>1
+
+
+SELECT `Message-ID` from header h1 where h1.Subject in      (     SELECT `Subject`     FROM header h2     group by h2.Subject HAVING COUNT(DISTINCT h2.`Sender`) >1     );
+
+
+SELECT `Message-ID` as `Message-ID (Replies)`
+    FROM recipients r1
+    WHERE r1.`Recipient` in
+    (
+    SELECT `Sender`
+    FROM header h2
+    group by h2.Subject HAVING COUNT(DISTINCT h2.`Sender`) >1
+    )
+
+
+SELECT h1.*
+    FROM header h1
+    WHERE 
+    h1.`Message-ID` in
+    (
+    SELECT h2.`Message-ID` from recipients r1 
+    JOIN header h2
+    WHERE h2.Subject = h1.Subject
+    AND h1.Sender in r1.Recipient
+    AND r1.Recipient in 
+        (SELECT Sender from header h3
+         WHERE h3.Subject = h1.Subject
+    )
+    AND h1.`Message-ID` IN
+    (
+    SELECT `Message-ID` from header h3
+    JOIN recipients r3
+    WHERE 
+    r3.Recipient = h1.Sender
+    )
+    group by h1.Subject HAVING COUNT(DISTINCT h1.`Sender`)>1
+
+
+SELECT h.* FROM header h
+WHERE
+`Message-ID` in
+    (
+     SELECT `MESSAGE-ID` FROM recipients r1
+     JOIN header h1
+     WHERE h.Subject = h1.Subject
+     AND h.Sender in 
+        (SELECT recipients r2 
+         WHERE r2.`Message-ID` = h.`Message-ID`)
+    )
+AND 
+Sender in
+    (
+     SELECT Recipient FROM r3 
+     WHERE Recipient in
+     (SELECT Sender FROM header h2
+      WHERE h2.Subject = h1.Subject)
+    )
+
+
+SELECT h.* FROM header h
+WHERE
+`Message-ID` in
+    (
+     SELECT r1.`MESSAGE-ID` FROM recipients r1
+     JOIN header h1
+     WHERE Subject = h.Subject
+     AND h.Sender in 
+        (SELECT Recipient from recipients r2 
+         WHERE r2.`Message-ID` = h.`Message-ID`
+         AND 
+         r2.Recipient in
+         (SELECT Sender FROM header h2
+         WHERE h2.Subject = h.Subject)
+        )
+    )
+
+
+SELECT * FROM
+
+(SELECT h.* FROM header h
+ WHERE h.Sender in
+    (SELECT Recipient from header h1 JOIN recipient r1
+     WHERE h.Subject = r1.Subject
+    )) as s1
+JOIN
+    (SELECT h2.* FROM header h2 
+     WHERE h.Subject = h2.Subject
+     AND h.Sender = s1.Recipient) s2
+ON h.Subject = s2.Subject
+GROUP BY Subject
+
+(SELECT h1.`Message-ID` as `Msg ()` FROM header h1
+LEFT JOIN recipients r1
+ON h1.`Message-ID` = r1.`Message-ID`
+LEFT JOIN header h2
+ON 
+AND 
+GROUP BY Subject
+HAVING COUNT(DISTINCT Sender) >1 
+ORDER BY h1.Date DESC) AS msg
+
+
+SELECT h1.* FROM header h1
+LEFT JOIN recipients r1
+ON h1.`Message-ID` = r1.`Message-ID`
+JOIN 
+(SELECT h2.`Message-ID` as `Message-ID (Reply)`, 
+Recipient, Subject, Date
+from header h2 
+LEFT JOIN recipients r2
+ON h2.`Message-ID` = r2.`Message-ID`
+) reply
+ON reply.Recipient = h1.Sender
+AND reply.Subject = h1.Subject
+GROUP BY h1.Subject
+HAVING COUNT(DISTINCT h1.Sender)>1
+ORDER BY h1.Date DESC
+LIMIT 1
+
+
+

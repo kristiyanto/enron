@@ -1,0 +1,39 @@
+/* 
+    SQL QUERY --ENRON EMAIL DATA (SLACK CODING CHALLENGE)
+    By Daniel Kristiyanto
+
+    QUESTION: Let's label an email as "direct" if there is exactly one recipient and "broadcast" if it has multiple recipients. Identify the person (or people) who received the largest number of direct emails and the person (or people) who sent the largest number of broadcast emails.
+
+    ANSWER:
+    This script is to answer the second portion of the question (To Find the people who sent the largest number of broadcast email).
+
+    To answer this question each sender's average recipients per message is     calculated (instead of only Total sender). 
+
+    This performed by using a subquery to count the number of recipients and the number of messages sent.
+
+    ASSUMPTIONS:
+    - Both Enron email and external organization emails are treated similarly
+    - Sender with average recipients overtime are considered as the largest number of broadcast email
+    - Only DISTINCT recipients are performed (e.g if a recipient is included in both To and CC, is considered as 1 recipient)
+*/
+
+SELECT Sender, 
+SUM(sub.`Total_Dist_Recipients`) AS `Total Recipients`,
+AVG(sub.`Total_Dist_Recipients`) AS `Average Recipients`
+
+
+/*
+    Subquery to Calculate the number of recipient for each Senders' messsage
+*/
+
+FROM header INNER join 
+ (SELECT recipients.`Message-ID` AS `Message-ID (Count)`,
+  COUNT(DISTINCT Recipient) AS Total_Dist_Recipients
+  FROM recipients GROUP BY recipients.`Message-ID`) 
+  AS sub 
+
+ON `Message-ID` = `Message-ID (Count)`
+GROUP BY Sender
+ORDER BY `Average Recipients` DESC, `Total Recipients` DESC
+LIMIT 1
+
