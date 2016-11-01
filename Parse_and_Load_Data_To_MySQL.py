@@ -1,7 +1,6 @@
 
+#!/usr/bin/python
 # coding: utf-8
-
-# In[1]:
 
 #################################################################
 # Enron Email for Slack Coding Challenge
@@ -20,9 +19,7 @@ import mysql.connector
 from email.utils import getaddresses
 import pytz
 
-
-# In[7]:
-
+# replace with IP of MySQL host
 mysql_host = '192.168.0.216'
 
 
@@ -135,7 +132,6 @@ if __name__ == '__main__':
     main()
 
 
-# In[ ]:
 
 
 
