@@ -14,7 +14,7 @@
 */
 
 SELECT 
-    DISTINCT CAST(Date AS DATE), 
+    DISTINCT CAST(Date AS DATE) as Date, 
     Recipient, 
     COUNT(DISTINCT r.`Message-ID`) as `Received` 
 
@@ -22,3 +22,11 @@ FROM recipients r
 LEFT JOIN header h ON r.`Message-ID` = h.`Message-ID` 
 
 GROUP BY CAST(Date AS DATE), Recipient ORDER BY CAST(Date AS DATE), Recipient;
+
+/*
+INTO OUTFILE '/var/lib/mysql-files/one.csv' 
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ';' 
+ESCAPED BY '"' 
+LINES TERMINATED BY '\r\n';
+*/

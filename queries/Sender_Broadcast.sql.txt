@@ -35,5 +35,13 @@ FROM header INNER join
 ON `Message-ID` = `Message-ID (Count)`
 GROUP BY Sender
 ORDER BY `Average Recipients` DESC, `Total Recipients` DESC
-LIMIT 1
+LIMIT 1;
+
+/*
+INTO OUTFILE '/var/lib/mysql-files/two-a.csv' 
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ';' 
+ESCAPED BY '"' 
+LINES TERMINATED BY '\r\n'
+*/
 

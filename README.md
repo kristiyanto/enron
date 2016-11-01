@@ -16,7 +16,8 @@ We would like you to write a program (in a language of your choice) to extract t
 # ANSWERS
 1.  Please refer to answer\1_email_per_day.csv
 2.  maureen.mcvicker@enron.com Recieved the largest of direct email with total of 115 emails.
-    dan.wall@lw.com sent most broadcast email with average of 104 recipients per message
+    dan.wall@lw.com sent most broadcast email with average of 104 recipients per message, as within Enron only, angela.wilson@enron.com sent most broadcast emails with average of 64 recipients per email
+
 3. As follows:
 
 
@@ -40,7 +41,7 @@ runMySQL.sh         : A shell script to run MySQL as a Docker Container.
 run-spark-python.sh : A shell script to run Spark-enabled Python Docker Container --Only used to debug/further analysis. Not used for subscribtion.
 README.md           : This file.
 
-This submission is also available on GitHub: https://github.com/kristiyanto/enron (Currently Private only)
+This submission is also available on GitHub: [https://github.com/kristiyanto/enron](https://github.com/kristiyanto/enron) (Currently Private only)
 
 # Requirements
 MySQL (Latest version)
@@ -52,8 +53,8 @@ Emails were downloaded rom [Enron Emails from UC Berkeley](http://bailando.sims.
 To answer the questions, SQL queries were performed. Results are saved as CSV in results folder.
 
 - Please refer to [schema.sql.txt](mysql/schema.sql.txt) for more detailed about the SQL schema
-- Please refer to [Parse_and_Load_Data_To_MySQL.py] for more detailed information about how the data were loaded to MySQL
-- Please refer to [queries] folder for more detailed information for each queies
+- Please refer to [Parse_and_Load_Data_To_MySQL.py](Parse_and_Load_Data_To_MySQL.py) for more detailed information about how the data were loaded to MySQL
+- Please refer to [queries](queries) folder for more detailed information for each queies
 
 
 # Assumptions

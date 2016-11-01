@@ -30,4 +30,13 @@ FROM recipients WHERE `Message-ID` IN
 
 GROUP BY Recipient
 ORDER BY `Recieved Email (Direct)` DESC
-LIMIT 1
+LIMIT 1;
+
+
+/*
+INTO OUTFILE '/var/lib/mysql-files/two-b.csv' 
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ';' 
+ESCAPED BY '"' 
+LINES TERMINATED BY '\r\n'
+*/
