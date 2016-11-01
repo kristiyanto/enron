@@ -1,9 +1,29 @@
+/* 
+    SQL QUERY --ENRON EMAIL DATA (SLACK CODING CHALLENGE)
+    By Daniel Kristiyanto
+
+    SQL Schema
+    This schema will create 4 Tables in a relational database 
+    MySQL is used for this project
+
+ */
+
+
 USE enron;
+
+/*
+    Drop if exists (to reset the database)
+    Disable if necessary
+*/
 
 DROP TABLE header;
 DROP TABLE addrbook;
 DROP TABLE recepients;
 DROP TABLE msg;
+
+/*
+    Schema starts here
+*/
 
 CREATE TABLE header(
     `Message-ID` VARCHAR(50) NOT NULL PRIMARY KEY, 
