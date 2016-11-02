@@ -1,6 +1,7 @@
 
-#!/usr/bin/python
 # coding: utf-8
+
+# In[1]:
 
 #################################################################
 # Enron Email for Slack Coding Challenge
@@ -19,7 +20,9 @@ import mysql.connector
 from email.utils import getaddresses
 import pytz
 
-# replace with IP of MySQL host
+
+# In[7]:
+
 mysql_host = '192.168.0.216'
 
 
@@ -89,11 +92,11 @@ def storeToMysql(header, message):
     add_addrbook = (("INSERT IGNORE INTO addrbook ({}) VALUES (%s, %s)".format(", ".join(emp))),
                     (header['From'], header['X-From']))
  
-    add_msg = (("INSERT IGNORE INTO msg ({}) VALUES (%s, %s, %s, %s, %s, %s)").format(", ".join(msg)),
+    add_msg = (("INSERT INTO msg ({}) VALUES (%s, %s, %s, %s, %s, %s)").format(", ".join(msg)),
                (header['Message-ID'], header['Mime-Version'], header['Content-Type'], 
                 header['Content-Transfer-Encoding'], header['X-Folder'], message))
     
-    add_head = (("INSERT IGNORE INTO header ({}) VALUES (%s, %s, %s, %s)".format(", ".join(head))), 
+    add_head = (("INSERT INTO header ({}) VALUES (%s, %s, %s, %s)".format(", ".join(head))), 
                (header["Message-ID"], header["From"], header["Subject"], dateConv(header['Date'])))    
     
     
@@ -109,19 +112,18 @@ def storeToMysql(header, message):
         Recipients section. Read each recipients and store it into recipient table as well into
         the addressbook table.
     '''
-    with open("out.sql", "a") as out:
 
-        for rtype in ['To', 'Cc', 'Bcc']:
-            if rtype in header.keys():
-                add_rec = ("INSERT IGNORE INTO recipients ({}) VALUES (%s, %s, %s)".format(", ".join(rec)))
+    for rtype in ['To', 'Cc', 'Bcc']:
+        if rtype in header.keys():
+            add_rec = ("INSERT IGNORE INTO recipients ({}) VALUES (%s, %s, %s)".format(", ".join(rec)))
+
+            add_employee_rec = ("INSERT IGNORE INTO addrbook (Name, Email) VALUES (%s, %s)",
+                     [(name, email) for name, email in getaddresses([header[rtype]])])
+
+            cursor.executemany(add_rec,                [(rtype, header['Message-ID'], email[1]) for email in getaddresses([header[rtype]])])
+            cursor.executemany(*add_employee_rec)
                 
-                add_employee_rec = ("INSERT IGNORE INTO addrbook (Name, Email) VALUES (%s, %s)",
-                         [(name, email) for name, email in getaddresses([header[rtype]])])
-                
-                cursor.executemany(add_rec,                    [(rtype, header['Message-ID'], email[1]) for email in getaddresses([header[rtype]])])
-                cursor.executemany(*add_employee_rec)
-                
-    out.close()
+
     cnx.commit()
     cursor.close()
     cnx.close()
