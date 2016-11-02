@@ -17,7 +17,6 @@ We would like you to write a program (in a language of your choice) to extract t
 Please refer to [queries](queries) and [results](results) for more detailed information.  
 1.  Please refer to [results\Email_Per_Day.csv](results\Email_Per_Day.csv)  
 2.  A: maureen.mcvicker@enron.com Received the largest of direct email with the total of 115 emails.  
-
     B: dan.wall@lw.com sent the most broadcast email with an average of 104 recipients per message. As within Enron email corporation only, angela.wilson@enron.com sent most broadcast emails with average of 64 recipients per email  
 
 3. As follow:  
