@@ -14,13 +14,13 @@ We would like you to write a program (in a language of your choice) to extract t
 
 
 # ANSWERS
-Please refer to [queries](queries) and [results](results) for more detailed information.
-1.  Please refer to [results\Email_Per_Day.csv](results\Email_Per_Day.csv)
-2.  A: maureen.mcvicker@enron.com Recieved the largest of direct email with total of 115 emails.
+Please refer to [queries](queries) and [results](results) for more detailed information.  
+1.  Please refer to [results\Email_Per_Day.csv](results\Email_Per_Day.csv)  
+2.  A: maureen.mcvicker@enron.com Received the largest of direct email with the total of 115 emails.  
 
-    B: dan.wall@lw.com sent most broadcast email with average of 104 recipients per message. As within Enron only, angela.wilson@enron.com sent most broadcast emails with average of 64 recipients per email
+    B: dan.wall@lw.com sent the most broadcast email with an average of 104 recipients per message. As within Enron email corporation only, angela.wilson@enron.com sent most broadcast emails with average of 64 recipients per email  
 
-3. As follow:
+3. As follow:  
 
 
 | Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Sender1                   | Sender2                     |
@@ -50,7 +50,7 @@ This submission is also available on GitHub: [https://github.com/kristiyanto/enr
 2. Python 2.6, Packages: dateutil, mysql.conector, email.utils, pytz
 
 # Architecture
-Emails were downloaded rom [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz), and extracted. A python script with leverage a parser (also from UC Berkeley) was used to load the email data into MySQL. 
+Emails were downloaded from [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz), and extracted. A python script with leverage a parser (also from UC Berkeley) was used to load the email data into MySQL. 
 To answer the questions, SQL queries were performed. Results are saved as CSV in results folder.
 
 - Please refer to [schema.sql.txt](mysql/schema.sql.txt) for more detailed about the SQL schema
@@ -59,10 +59,12 @@ To answer the questions, SQL queries were performed. Results are saved as CSV in
 
 
 # Assumptions
-Within each queries (in queries folder), a more detailed information is provided, but in general:
-- All emails (both Enron specific and external emails) were treated equally
-- Sender with average recipients overtime are considered as the largest number of broadcast email
+Within each query (in queries folder), a more detailed information is provided, but in general:
+- All emails (both Enron-specific and external emails) were treated equally
+- Sender with average recipients over time are considered as the largest number of broadcast email
 - Only DISTINCT recipients are performed (e.g if a recipient is included in both To and CC, is considered as 1 recipient)
+- Some of the data show wrong dates (back in 1979), this data was not treated differently --assuming that there was some explanation for this mistake (e.g. Server misconfiguration, or Millenium bug/Y2K problem.). Given that there was no email sent/received between Dec 29, 1999 - Jan 3, 2000, Y2K millennium bug may be considered as the problem, however, a further investigation needed. Reference: https://www.britannica.com/technology/Y2K-bug
+- Although some email may appear unusual, e.g. email address containing apostrophes or two dots, these addresses are a valid address and often used for internal usage. These emails were treated no differently. More Info: https://tools.ietf.org/html/rfc5322 
 
 
 # Contact 
