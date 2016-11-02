@@ -22,8 +22,7 @@ SELECT
 sender1.Date as `Date (Sender1)`,
 sender2.Date as `Date (Sender2)`,
 ABS(TIME_TO_SEC(TIMEDIFF(sender1.Date, sender2.Date))) AS `Respond Time (seconds)`,
-sender1.Subject as `Subject (Sender1)`,
-sender2.Subject as `Subject (Sender2)`,
+sender1.Subject as `Subject`,
 sender1.Sender as Sender1,
 sender2.Sender as Sender2
 FROM
@@ -69,7 +68,7 @@ sender1.Sender <> sender2.Sender
 AND sender1.Subject IS NOT NULL
 
 ORDER BY `Respond Time (seconds)`
-LIMIT 1;
+LIMIT 5;
 
 /*
 INTO OUTFILE '/var/lib/mysql-files/two-b.csv' 

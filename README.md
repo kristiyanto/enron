@@ -31,6 +31,15 @@ Please refer to [queries](queries) and [results](results) for more detailed info
 | 2001-10-26 09:13:36 | 2001-10-26 09:28:56 |                    920 | lizzette.palmer@enron.com | michelle.cash@enron.com     |
 
 
+| Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Subject                                                                 | Sender1                   | Sender2                     |
++---------------------|---------------------|------------------------|-------------------------------------------------------------------------|---------------------------|-----------------------------
+| 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | FW: Confidential - GSS Organization Value to ETS                        | stanley.horton@enron.com  | rod.hayslett@enron.com      |
+| 2001-05-10 06:55:00 | 2001-05-10 06:51:00 |                    240 | RE: Eeegads...                                                          | jeff.dasovich@enron.com   | paul.kaufman@enron.com      |
+| 2001-11-21 10:59:36 | 2001-11-21 11:12:04 |                    748 | RE: Confidential - GSS Organization Value to ETS                        | rod.hayslett@enron.com    | morris.brassfield@enron.com |
+| 2001-10-26 09:13:36 | 2001-10-26 09:28:56 |                    920 | RE: CONFIDENTIAL Personnel issue                                        | lizzette.palmer@enron.com | michelle.cash@enron.com     |
+| 2001-11-14 15:24:08 | 2001-11-14 14:34:57 |                   2951 | RE: PG&E PX Credit Calculation -- CONFIDENTIAL ATTY CLIENT WORK PRODUCT | d..steffes@enron.com      | alan.comnes@enron.com       |
+
+
 # Folder Structures:
 **mysql**               : Schema for MySQL  
 **queries**             : Queries to answer the questions  
