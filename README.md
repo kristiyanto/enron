@@ -21,18 +21,8 @@ Please refer to [queries](queries) and [results](results) for more detailed info
 
 3. As follow:  
 
-
-| Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Sender1                   | Sender2                     |
-|---------------------|---------------------|------------------------|---------------------------|-----------------------------|
-| 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | stanley.horton@enron.com  | rod.hayslett@enron.com      |
-| 2001-05-10 06:55:00 | 2001-05-10 06:51:00 |                    240 | jeff.dasovich@enron.com   | paul.kaufman@enron.com      |
-| 2001-04-13 05:30:00 | 2001-04-13 05:34:00 |                    240 | karen.denne@enron.com     | jeff.dasovich@enron.com     |
-| 2001-11-21 10:59:36 | 2001-11-21 11:12:04 |                    748 | rod.hayslett@enron.com    | morris.brassfield@enron.com |
-| 2001-10-26 09:13:36 | 2001-10-26 09:28:56 |                    920 | lizzette.palmer@enron.com | michelle.cash@enron.com     |
-
-
 | Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Subject                                                                 | Sender1                   | Sender2                     |
-+---------------------|---------------------|------------------------|-------------------------------------------------------------------------|---------------------------|-----------------------------
+|---------------------|---------------------|------------------------|-------------------------------------------------------------------------|---------------------------|-----------------------------|
 | 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | FW: Confidential - GSS Organization Value to ETS                        | stanley.horton@enron.com  | rod.hayslett@enron.com      |
 | 2001-05-10 06:55:00 | 2001-05-10 06:51:00 |                    240 | RE: Eeegads...                                                          | jeff.dasovich@enron.com   | paul.kaufman@enron.com      |
 | 2001-11-21 10:59:36 | 2001-11-21 11:12:04 |                    748 | RE: Confidential - GSS Organization Value to ETS                        | rod.hayslett@enron.com    | morris.brassfield@enron.com |
