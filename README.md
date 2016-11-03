@@ -47,7 +47,7 @@ This submission is also available on GitHub: [https://github.com/kristiyanto/enr
 
 # Requirements
 1. MySQL (Latest version)
-2. Python 2.6, Packages: dateutil, mysql.connector, email.utils, pytz
+2. Python 2.7, Packages: dateutil, mysql.connector, email.utils, pytz
 
 ## Manual
 1. Install MySQL (Or using Docker, script: `runMySQL.sh`).
