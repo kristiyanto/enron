@@ -58,7 +58,8 @@ bash runMySQL.sh
 ```
 2. Create MySQL Schema (script: `mysql\schema.sql.txt`)
 ```bash
-mysql -u root -password=password
+# for Docker solution, default password is: enron
+mysql -u root --password=password
 
 ## Within mysql console:
     source schema.sql.txt
@@ -75,7 +76,7 @@ python Parse_and_Load_Data_To_MySQL.py
 The solution is also available as a docker container.
 On Docker enabled machines:
 ```bash
-docker run -ti --p 3306:3306 kristiyanto\enron
+docker run -ti -p 3306:3306 kristiyanto\enron
 ```
 Once docker is loaded:
 ```bash
