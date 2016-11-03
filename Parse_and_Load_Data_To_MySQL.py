@@ -92,11 +92,11 @@ def storeToMysql(header, message):
     add_addrbook = (("INSERT IGNORE INTO addrbook ({}) VALUES (%s, %s)".format(", ".join(emp))),
                     (header['From'], header['X-From']))
  
-    add_msg = (("INSERT INTO msg ({}) VALUES (%s, %s, %s, %s, %s, %s)").format(", ".join(msg)),
+    add_msg = (("INSERT IGNORE INTO msg ({}) VALUES (%s, %s, %s, %s, %s, %s)").format(", ".join(msg)),
                (header['Message-ID'], header['Mime-Version'], header['Content-Type'], 
                 header['Content-Transfer-Encoding'], header['X-Folder'], message))
     
-    add_head = (("INSERT INTO header ({}) VALUES (%s, %s, %s, %s)".format(", ".join(head))), 
+    add_head = (("INSERT IGNORE INTO header ({}) VALUES (%s, %s, %s, %s)".format(", ".join(head))), 
                (header["Message-ID"], header["From"], header["Subject"], dateConv(header['Date'])))    
     
     
