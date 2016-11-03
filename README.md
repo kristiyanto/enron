@@ -50,12 +50,22 @@ This submission is also available on GitHub: [https://github.com/kristiyanto/enr
 2. Python 2.6, Packages: dateutil, mysql.connector, email.utils, pytz
 
 ## Manual
-1. Install MySQL (Or using Docker, script: runMySQL.sh).
-2. Create MySQL Schema (script: mysql\schema.sql.txt)
+1. Install MySQL (Or using Docker, script: `runMySQL.sh`).
+```bash
+bash runMySQL.sh
+```
+2. Create MySQL Schema (script: `mysql\schema.sql.txt`)
+```bash
+mysql -u root -password=password
+source schema.sql.txt
+```
 3. Make sure Python MySQL connector is installed. More info: https://dev.mysql.com/downloads/connector/python/
 4. Make sure additional python libraries installed.
-4. The enron email data should be ready (and extracted) under folder rawdata/
-5. Run Parse_and_Load_Data_To_MySQL.py
+4. The enron email data should be ready (and extracted) under folder `rawdata/`
+5. Run `Parse_and_Load_Data_To_MySQL.py`
+```python
+python Parse_and_Load_Data_To_MySQL.py
+```
 
 # Architecture
 Emails were downloaded from [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz), and extracted. A python script with leverage a parser (also from UC Berkeley) was used to load the email data into MySQL. 
