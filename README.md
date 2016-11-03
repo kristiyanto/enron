@@ -75,7 +75,7 @@ python Parse_and_Load_Data_To_MySQL.py
 The solution is also available as a docker container.
 On Docker enabled machines:
 ```bash
-docker run -ti -p 3306:3306 kristiyanto\enron
+docker run -ti --p 3306:3306 kristiyanto\enron
 ```
 Once docker is loaded:
 ```bash
