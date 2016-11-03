@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/image/kristiyanto/enron.svg)](https://microbadger.com/images/kristiyanto/enron "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/kristiyanto/enron.svg)](https://microbadger.com/images/kristiyanto/enron "Get your own version badge on microbadger.com")
+
 # ENRON EMAIL - CODING CHALLENGE FOR SLACK
 ### by Daniel Kristiyanto - Palo Alto, Autumn 2016
 
