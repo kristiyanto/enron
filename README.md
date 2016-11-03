@@ -87,7 +87,7 @@ mysql -u root
     exit
 
 cd ..
-python python Parse_and_Load_Data_To_MySQL.py
+python Parse_and_Load_Data_To_MySQL.py
 
 ## The script does not produce any startard output. 
 ```
