@@ -57,7 +57,9 @@ bash runMySQL.sh
 2. Create MySQL Schema (script: `mysql\schema.sql.txt`)
 ```bash
 mysql -u root -password=password
-source schema.sql.txt
+
+## Within mysql console:
+    source schema.sql.txt
 ```
 3. Make sure Python MySQL connector is installed. More info: https://dev.mysql.com/downloads/connector/python/
 4. Make sure additional python libraries installed.
