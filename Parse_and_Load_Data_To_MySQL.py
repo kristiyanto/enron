@@ -1,8 +1,4 @@
-
-# coding: utf-8
-
-# In[1]:
-
+#!/usr/bin/python
 #################################################################
 # Enron Email for Slack Coding Challenge
 # by Daniel Kristiyanto, danielkr@uw.edu 
@@ -23,7 +19,8 @@ import pytz
 
 # In[7]:
 
-mysql_host = '192.168.0.216'
+#mysql_host = '192.168.0.216'
+mysql_host = '127.0.0.1'
 
 
 def main():

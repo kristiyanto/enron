@@ -9,6 +9,7 @@
  */
 
 
+
 USE enron;
 
 /*
@@ -51,3 +52,15 @@ CREATE TABLE msg(
     `X-Folder` VARCHAR(255), 
     Body TEXT
 );
+
+/*
+    Require ONLY_FULL_GROUP_BY disabled. Run following commands if the query resulting error ONLY FULL GROUP BY.
+
+*/
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+
+
