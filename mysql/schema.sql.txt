@@ -19,7 +19,7 @@ USE enron;
 
 DROP TABLE header;
 DROP TABLE addrbook;
-DROP TABLE recepients;
+DROP TABLE recipients;
 DROP TABLE msg;
 
 /*

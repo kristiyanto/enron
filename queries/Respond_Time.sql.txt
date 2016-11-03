@@ -68,11 +68,13 @@ sender1.Sender <> sender2.Sender
 AND sender1.Subject IS NOT NULL
 
 ORDER BY `Respond Time (seconds)`
+LIMIT 5;
 
 
-
+/*
 INTO OUTFILE '/var/lib/mysql-files/two-b.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ';' 
 ESCAPED BY '"' 
 LINES TERMINATED BY '\r\n';
+*/

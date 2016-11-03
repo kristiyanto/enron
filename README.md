@@ -27,11 +27,11 @@ Data representation for the answer are also available on [Tableau Public: https:
 
 | Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Subject                                                                 | Sender1                   | Sender2                     |
 |---------------------|---------------------|------------------------|-------------------------------------------------------------------------|---------------------------|-----------------------------|
-| 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | FW: Confidential - GSS Organization Value to ETS                        | stanley.horton@enron.com  | rod.hayslett@enron.com      |
-| 2001-05-10 06:55:00 | 2001-05-10 06:51:00 |                    240 | RE: Eeegads...                                                          | jeff.dasovich@enron.com   | paul.kaufman@enron.com      |
-| 2001-11-21 10:59:36 | 2001-11-21 11:12:04 |                    748 | RE: Confidential - GSS Organization Value to ETS                        | rod.hayslett@enron.com    | morris.brassfield@enron.com |
-| 2001-10-26 09:13:36 | 2001-10-26 09:28:56 |                    920 | RE: CONFIDENTIAL Personnel issue                                        | lizzette.palmer@enron.com | michelle.cash@enron.com     |
-| 2001-11-14 15:24:08 | 2001-11-14 14:34:57 |                   2951 | RE: PG&E PX Credit Calculation -- CONFIDENTIAL ATTY CLIENT WORK PRODUCT | d..steffes@enron.com      | alan.comnes@enron.com       |
+| 2001-11-21 08:52:26 | 2001-11-21 08:49:58 |                    148 | FW: Confidential - GSS Organization Value to ETS                        | stanley.horton@enron.com | rod.hayslett@enron.com      |
+| 2001-05-10 06:51:00 | 2001-05-10 06:55:00 |                    240 | RE: Eeegads...                                                          | paul.kaufman@enron.com   | jeff.dasovich@enron.com     |
+| 2001-10-26 09:18:58 | 2001-10-26 09:13:36 |                    322 | RE: CONFIDENTIAL Personnel issue                                        | michelle.cash@enron.com  | lizzette.palmer@enron.com   |
+| 2001-11-21 10:59:36 | 2001-11-21 11:12:04 |                    748 | RE: Confidential - GSS Organization Value to ETS                        | rod.hayslett@enron.com   | morris.brassfield@enron.com |
+| 2001-11-14 14:34:57 | 2001-11-14 15:24:08 |                   2951 | RE: PG&E PX Credit Calculation -- CONFIDENTIAL ATTY CLIENT WORK PRODUCT | alan.comnes@enron.com    | d..steffes@enron.com        |
 
 
 # Folder Structures:
@@ -41,8 +41,8 @@ Data representation for the answer are also available on [Tableau Public: https:
 **enronparser**         : contains script downloaded from [UC Berkeley](http://courses.ischool.berkeley.edu/i290-2/f04/assignments/enronEmail.py), written by Andrew Fiore to Parse Enron email to Dictionary.  
   
 **Parse_and_Load_Data_To_MySQL.py** : A python script to load the data into MySQL  
-**runMySQL.sh**         : A shell script to run MySQL as a Docker Container. 
-**run-spark-python.sh** : A shell script to run Spark-enabled Python Docker Container --Only used to debug/further analysis. Not used for subscribtion.  
+**runMySQL.sh**         : A shell script to run MySQL as a Docker Container.  
+**run-spark-python.sh** : A shell script to run Spark-enabled Python Docker Container --Only used to debug/further analysis. Not used for submission.  
 **README.md**           : This file.  
 
 This submission is also available on GitHub: [https://github.com/kristiyanto/enron](https://github.com/kristiyanto/enron) (Currently Private only)
