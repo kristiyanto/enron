@@ -17,8 +17,6 @@ from email.utils import getaddresses
 import pytz
 
 
-# In[7]:
-
 #mysql_host = '192.168.0.216'
 mysql_host = '127.0.0.1'
 
