@@ -69,6 +69,31 @@ mysql -u root -password=password
 python Parse_and_Load_Data_To_MySQL.py
 ```
 
+## Docker 
+The solution is also available as a docker container.
+On Docker enabled machines:
+```bash
+docker run -ti -p 3306:3306 kristiyanto\enron
+```
+Once docker is loaded:
+```bash
+cd mysql
+service mysql start
+mysql -u root
+
+# On mysql console:
+    CREATE database enron;
+    source schema.sql.txt
+    exit
+
+cd ..
+python python Parse_and_Load_Data_To_MySQL.py
+
+## The script does not produce any startard output. 
+```
+Now that the data is loaded to MySQL, queries can be performed either within the docker directly, or can be linked to external applications (e.g. Tableau) or Microsoft Excel.
+
+
 # Architecture
 Emails were downloaded from [Enron Emails from UC Berkeley](http://bailando.sims.berkeley.edu/enron/enron_with_categories.tar.gz), and extracted. A python script with leverage a parser (also from UC Berkeley) was used to load the email data into MySQL. 
 To answer the questions, SQL queries were performed. Results are saved as CSV in results folder.
