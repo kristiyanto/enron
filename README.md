@@ -22,7 +22,7 @@ Data representation for the answer are also available on [Tableau Public: https:
 
 1.  Please refer to [results\Email_Per_Day.csv](results\Email_Per_Day.csv)  
 2.  A: maureen.mcvicker@enron.com Received the largest of direct email with the total of 115 emails.  
-    B: dan.wall@lw.com sent the most broadcast email with an average of 104 recipients per message. As within Enron email corporation only, angela.wilson@enron.com sent most broadcast emails with average of 64 recipients per email  
+    B: steven.kean@enron.com sent most of broadcast emails (email with recipients >1), with total of 253 emails.
 3. As follow:  
 
 | Date (Sender1)      | Date (Sender2)      | Respond Time (seconds) | Subject                                                                 | Sender1                   | Sender2                     |
@@ -111,6 +111,7 @@ Within each query (in queries folder), a more detailed information is provided, 
 - All emails (both Enron-specific and external emails) were treated equally
 - Sender with average recipients over time are considered as the largest number of broadcast email
 - Only DISTINCT recipients are performed (e.g if a recipient is included in both To and CC, is considered as 1 recipient)
+- All the dates were converted to Pacific Time (GMT -7)
 - Some of the data show wrong dates (back in 1979), this data was not treated differently --assuming that there was some explanation for this mistake (e.g. Server misconfiguration, or Millenium bug/Y2K problem.). Given that there was no email sent/received between Dec 29, 1999 - Jan 3, 2000, Y2K millennium bug may be considered as the problem, however, a further investigation needed. Reference: https://www.britannica.com/technology/Y2K-bug
 - Although some email may appear unusual, e.g. email address containing apostrophes or two dots, these addresses are a valid address and often used for internal usage. These emails were treated no differently. More Info: https://tools.ietf.org/html/rfc5322 
 

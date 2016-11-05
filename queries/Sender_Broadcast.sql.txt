@@ -5,11 +5,11 @@
     QUESTION: Let's label an email as "direct" if there is exactly one recipient and "broadcast" if it has multiple recipients. Identify the person (or people) who received the largest number of direct emails and the person (or people) who sent the largest number of broadcast emails.
 
     ANSWER:
-    This script is to answer the second portion of the question (To Find the people who sent the largest number of broadcast email).
+    This script is to answer the second portion of the question (to find the people who sent most email with recipients > 1).
 
-    To answer this question each sender's average recipients per message is     calculated (instead of only Total sender). 
+    This is done by creating a table which contain information about the number of message sent by a sender (excluding direct message) as a view. Another query is performed to filter out only the recipients with max number.
 
-    This performed by using a subquery to count the number of recipients and the number of messages sent.
+
 
     ASSUMPTIONS:
     - Both Enron email and external organization emails are treated similarly
@@ -17,25 +17,27 @@
     - Only DISTINCT recipients are performed (e.g if a recipient is included in both To and CC, is considered as 1 recipient)
 */
 
-SELECT Sender, 
-SUM(sub.`Total_Dist_Recipients`) AS `Total Recipients`,
-AVG(sub.`Total_Dist_Recipients`) AS `Average Recipients`
-
 
 /*
-    Subquery to Calculate the number of recipient for each Senders' messsage
+    Creating a view with total of Broadcast
 */
 
-FROM header INNER join 
- (SELECT recipients.`Message-ID` AS `Message-ID (Count)`,
-  COUNT(DISTINCT Recipient) AS Total_Dist_Recipients
-  FROM recipients GROUP BY recipients.`Message-ID`) 
-  AS sub 
-
-ON `Message-ID` = `Message-ID (Count)`
+CREATE VIEW broadcast AS
+SELECT Sender,
+COUNT(h.`Message-ID`) AS N
+FROM header h
+INNER JOIN
+    (SELECT r.`Message-ID` FROM recipients r
+     GROUP BY r.`Message-ID` HAVING COUNT(DISTINCT Recipient) > 1 
+    ) filter
+ON h.`Message-ID` = filter.`Message-ID`
 GROUP BY Sender
-ORDER BY `Average Recipients` DESC, `Total Recipients` DESC
-LIMIT 1;
+ORDER BY N DESC; 
+
+SELECT * FROM broadcast 
+WHERE N = (SELECT MAX(N) FROM broadcast);
+
+
 
 /*
 INTO OUTFILE '/var/lib/mysql-files/two-a.csv' 
