@@ -34,6 +34,10 @@ ON h.`Message-ID` = filter.`Message-ID`
 GROUP BY Sender
 ORDER BY N DESC; 
 
+/*
+    Get all senders who sent most of broadcast emails
+*/
+
 SELECT * FROM broadcast 
 WHERE N = (SELECT MAX(N) FROM broadcast);
 
