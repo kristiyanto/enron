@@ -1,6 +1,5 @@
 #!/usr/bin/python
 #################################################################
-# Enron Email for Slack Coding Challenge
 # by Daniel Kristiyanto, danielkr@uw.edu 
 # Palo Alto, California -- Autumn 2016
 #
