@@ -111,8 +111,3 @@ Within each query (in queries folder), a more detailed information is provided, 
 - All the dates were converted to Pacific Time (GMT -7)
 - Some of the data show wrong dates (back in 1979), this data was not treated differently --assuming that there was some explanation for this mistake (e.g. Server misconfiguration, or Millenium bug/Y2K problem.). Given that there was no email sent/received between Dec 29, 1999 - Jan 3, 2000, Y2K millennium bug may be considered as the problem, however, a further investigation needed. Reference: https://www.britannica.com/technology/Y2K-bug
 - Although some email may appear unusual, e.g. email address containing apostrophes or two dots, these addresses are a valid address and often used for internal usage. These emails were treated no differently. More Info: https://tools.ietf.org/html/rfc5322 
-
-
-# Contact 
-Daniel Kristiyanto
-
